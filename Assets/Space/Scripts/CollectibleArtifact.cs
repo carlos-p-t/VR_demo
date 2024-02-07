@@ -1,22 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Collectible5 : MonoBehaviour
+public class CollectibleArtifact : MonoBehaviour
 {
     public GameObject Instruction;
-    public GameObject CardTrigger;
+    public GameObject ObjectTrigger;
     public GameObject ObjectOnGround;
-    public bool card5;
+    public GameObject Ship;
+    public bool artifact;
     public bool Action = false;
     // Start is called before the first frame update
     void Start()
     {
         Instruction.SetActive(false);
-        CardTrigger.SetActive(true);
+        ObjectTrigger.SetActive(true);
         ObjectOnGround.SetActive(true);
-        card5 = false;
+        artifact = false;
     }
 
     void OnTriggerEnter(Collider col)
@@ -43,9 +43,10 @@ public class Collectible5 : MonoBehaviour
             {
                 Instruction.SetActive(false);
                 ObjectOnGround.SetActive(false);
-                CardTrigger.SetActive(false);
+                ObjectTrigger.SetActive(false);
                 Action = false;
-                card5 = true;
+                artifact = true;
+                Ship.SetActive(false);
             }
         }
     }
